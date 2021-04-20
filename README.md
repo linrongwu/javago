@@ -1,2 +1,1 @@
-# javago
-## Java 学习
+# Java Go

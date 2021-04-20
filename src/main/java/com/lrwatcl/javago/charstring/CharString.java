@@ -1,4 +1,4 @@
-package com.lrwatcl.javago.charstring.code;
+package com.lrwatcl.javago.charstring;
 
 /**
  * TODO
