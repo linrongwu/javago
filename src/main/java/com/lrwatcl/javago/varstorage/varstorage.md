@@ -114,6 +114,38 @@ Space losses: 2 bytes internal + 0 bytes external = 2 bytes total
 静态变量不在对象里存储，故不在堆内存区域  
 成员变量在对象存储，故在堆内存区域  
 基本类型直接保存值，对象类型保存引用（指针），统一占8字节，非对象值（Object占16字节，而子类String占8字节，说明保存的不是值）  
+分析过程
+jps:Java Virtual Machine Process Status Tool,java提供的一个显示当前所有java进程pid的命令
+9975 Variable
+jhsdb hsdb --pid=9975 jhsdb jvm可视化工具
 
 
+universe
+Heap Parameters:
+Gen 0:   eden [0x00007f6432000000,0x00007f6433762340,0x00007f6434110000) space capacity = 34668544, 70.72546225189036 used
+  from [0x00007f6434110000,0x00007f6434110000,0x00007f6434530000) space capacity = 4325376, 0.0 used
+  to   [0x00007f6434530000,0x00007f6434530000,0x00007f6434950000) space capacity = 4325376, 0.0 usedInvocations: 0
 
+Gen 1:   old  [0x00007f645ae00000,0x00007f645ae00000,0x00007f64600b0000) space capacity = 86704128, 0.0 usedInvocations: 0
+
+scanoops 0x00007f6432000000 0x00007f6434110000 com.lrwatcl.javago.varstorage.Variable
+0x00007f6433738be0 com/lrwatcl/javago/varstorage/Variable
+
+inspect 0x00007f6433738be0
+instance of Oop for com/lrwatcl/javago/varstorage/Variable @ 0x00007f6433738be0 @ 0x00007f6433738be0 (size = 56)
+_mark: 5
+_metadata._klass: InstanceKlass for com/lrwatcl/javago/varstorage/Variable
+instanceBoolean: true
+instanceByte: 1
+instanceShort: 1
+instanceChar: ''
+instanceInt: 1
+instanceFloat: 1.0
+instanceLong: 1
+instanceDouble: 1.0
+instanceString: null null
+
+revptrs 0x00007f6433738be0
+null
+null
+revptrs可根据对象地址查看引用该对象的活跃对象的地址，这里的引用是指通过类全局属性而非局部变量引用
