@@ -19,8 +19,8 @@ public class Variable {
     public long instanceLong = 1;
     public double instanceDouble = 1;
 
-    public static String staticString = null;
-    public String instanceString = null;
+    public static String staticString = "staticString123";
+    public String instanceString = "instanceString123";
 
     public void localInt() {
         boolean localBoolean = true;
@@ -31,8 +31,8 @@ public class Variable {
         float localFloat = 3;
         long localLong = 3;
         double localDouble = 3;
-        String localString  = null;
-        System.out.println(null==localString);
+        String localString  = "localString123";
+        System.out.println(localString);
         System.out.println(localBoolean);
         System.out.println(localByte);
         System.out.println(localShort);

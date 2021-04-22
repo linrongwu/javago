@@ -1,9 +1,5 @@
 package com.lrwatcl.javago.charstring;
 
-/**
- * 字符
- * @author String
- */
 public class CharString {
 
     public void charFunction(){
