@@ -1,12 +1,16 @@
-# 变量的存储大小与位置
-JVM参数：-XX:+UseSerialGC -XX:-UseCompressedOops  
-JDK版本：1.8  
-JVM虚拟机：HotSpot VM
+# 变量存储
+## 配置说明
+* JVM参数：
+    - -XX:+UseSerialGC(使用串行回收器)
+    - -XX:-UseCompressedOops (关闭压缩指针)
+* JDK版本：1.8  
+* JVM虚拟机：HotSpot VM
 
+## 结论
 | 变量类型 | 存储位置 |
 | :--- | :--- |
 | 静态变量 | JVM的堆内存（类的class对象） |
-| 实例变量 | JVM的堆内存（类的对象） |
+| 实例变量 | JVM的堆内存（类的实例对象） |
 | 局部变量 | JVM的栈内存 （栈帧）|
 
 | 变量类型 | 存储大小 |
@@ -19,8 +23,10 @@ JVM虚拟机：HotSpot VM
 | float | 4字节 |
 | long | 8字节 |
 | double | 8字节 |
-| 对象类型 | 8字节 |
+| Reference | 8字节 |
 
+## 分析
+### 程序
 ```Java
 public class Variable {
     public static boolean staticBoolean = true;
@@ -73,7 +79,7 @@ public class Variable {
     }
 }
 ```
-程序输出如下：  
+### 输出
 ```
 java.lang.Object object internals:
 OFF  SZ   TYPE DESCRIPTION               VALUE
@@ -99,7 +105,7 @@ OFF  SZ               TYPE DESCRIPTION                VALUE
 Instance size: 56 bytes
 Space losses: 2 bytes internal + 0 bytes external = 2 bytes total
 ```
-JVM分析过程
+### 分析
 ```
 打印所有Java进城pid指令
 jps
