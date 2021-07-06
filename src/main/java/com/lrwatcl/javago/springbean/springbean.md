@@ -1,8 +1,11 @@
 # spring bean
 ## Resource 
-Resource接口主要作用是提供InputStream,URL,URI,File,简而言之就是获取资源（不同方式）
 ![Resource](./Resource.png)
 ![Resource2](./Resource2.png)
+Resource接口主要作用是提供InputStream,URL,URI,File类型的资源,简而言之就是获取资源（不同方式）
+![ResourceLoader](./ResourceLoader.png)
+![ResourceLoader2](./ResourceLoader2.png)
+ResourceLoader接口主要作用一个获取资源的统一方法
 
 ## Document
 
